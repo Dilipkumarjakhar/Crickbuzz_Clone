@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
-<body>
+<body onload="dilip()">
    <div class="main">
        <header>
            <div class="navbar">
@@ -131,30 +131,80 @@
                                     <a>Cricbuzz Plus </a>
                                 </div>
                             </li>
-                            <!-- <li><button> Cricbuzz Plus</button>
+                            <li><button> Cricbuzz Plus</button>
                             </li><span class="cb-plus-ico cb-user-icon"></span>
-                            </li> -->
+                            </li>
                         </ul>
                     </div>
             </div>
-           <div class="navbar">
+           <div class="navbar" id="second">
                
         </div>
        </header>
+       <div id="alldata">
+                    <div id="showdata_once">
+                         
+                    </div>
+                <div id="showdata_twos">
+
+                </div>
+            <div id="showdata_threes">
+fogl
+            </div>
+       </div>
+    
+    
    </div>
 </body>
 <script>
-    function myfunction(){
-    //    alert("haaa")
-       document.getElementById('news').classList.toggle('show')
-    }
-    window.onclick = function(e) {
-//   if (!e.target.matches('.dropbtn')) {
-  var myDropdown = document.getElementById("drop");
-    if (myDropdown.classList.contains('show')) {
-      myDropdown.classList.remove('show');
-    }
-//   }
-}
+    // function myfunction(){
+    // //    alert("haaa")
+    //    document.getElementById('news').classList.toggle('show')
+    // }
+    // window.onclick = function(e) {
+    //     //   if (!e.target.matches('.dropbtn')) {
+    //         var myDropdown = document.getElementById("drop");
+    //         if (myDropdown.classList.contains('show')) {
+    //             myDropdown.classList.remove('show');
+    //         }
+    //         //   }
+    //     }
+       async function dilip(){
+        let url='https://newsapi.org/v2/everything?q=t20&apiKey=e0f50a912c704931a073a03da9d3fe0e';
+        
+         let data=await fetch(url)
+         let res=await data.json();  
+         console.log('res:', res.articles)
+         
+          dj(res.articles)
+        }
+let show=document.getElementById('showdata_twos');
+// let shows=document.getElementById('showdatas');
+
+        function dj(x){
+            x.map((e)=>{
+               console.log(e.urlToImage);
+     let div=document.createElement('div');
+    //  let divs=document.createElement('div');
+    //  div.style.border="1px solid black"
+    //    div.setAttribute('class',divdetails)
+         // div.innerHTML=a e.url
+          let img=document.createElement('img');
+            img.src=e.urlToImage;
+        //   let imgs=document.createElement('img');
+        //     imgs.src=e.urlToImage;
+           let p=document.createElement('p');
+             p.innerHTML=e.description;
+          let span=document.createElement('span');
+             span.innerHTML=e.publishedAt
+         let h4=document.createElement('h4');
+             h4.innerHTML=e.title;
+
+             div.append(img,h4,p,span);
+            //  divs.append(imgs);
+             show.append(div);
+            //  shows.append(divs);
+           })
+        }
 </script>
 </html>

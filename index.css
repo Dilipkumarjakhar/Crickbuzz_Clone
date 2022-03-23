@@ -12,18 +12,21 @@
 header{
     /* display: grid; */
     margin: 5% auto;
-    height: 20%;
+    height: 15%;
     width: 60%;
     border: 1px solid #000;
 }
 .navbar{
     display:grid;
-    grid-template-columns: 2fr 10fr;
+    grid-template-columns: 1.1fr 10fr;
     grid-template-rows: 5fr;
     background-color: #009270;
-    border: 1px solid #000;
-    height: 40%;
+    border: 1px solid rgb(252, 252, 252);
+    height: 50%;
     width: 100%;
+}
+#second{
+    background-color: #000;
 }
 
 .top{
@@ -36,13 +39,16 @@ header{
 }
 
 .top ul li{
-    margin: 0.5rem;
-    font-size:15px;
+    margin-left: 0.5rem;
+    margin-top: 0.8rem;
+    font-size:17px;
     color: #fff;
     text-align: center;
     align-items: center;
     display: inline-block;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
 }
 /* -------------------news----------------------     */
 .news_dropdown {
@@ -166,8 +172,9 @@ header{
    /* --------------------------more----------------      */
    .more_dropdown{
        display: none;
+       position: absolute;
        min-width: 100px;
-       box-shadow: 0px 1px 5px 0.1rem #fff;
+       box-shadow: 0px 1px 5px 0.1rem rgb(66, 64, 64);
        z-index: 1;
        background-color: #fff;
    }
@@ -176,12 +183,81 @@ header{
        float: none;
        text-align: left;
        text-decoration: none;
-       padding:5px 10px;
+       padding:10px 20px;
        color: #000;
    }
    .more_dropdown a:hover{
-       background-color:white;
+       background-color:rgb(184, 182, 182);
    }
    #more:hover .more_dropdown{
        display: block;
    }
+
+
+   /* ------------------alldata----------------------   */
+   #showdata_once{
+       grid-area: o; 
+       border: 1px solid black;
+    }
+    #showdata_twos{
+        grid-area: t; 
+        border: 1px solid black;
+        
+    }
+    #showdata_threes{
+        grid-area: th; 
+        border: 1px solid black;
+        
+    }
+    #alldata{
+        margin-top:-70px;
+        margin-left:20%;
+       
+        border: 1px solid rgb(23, 240, 77);
+        width: 60%;
+        display: grid;
+        grid-template-columns: repeat(10, 0.5fr);
+        grid-auto-rows: minmax(100vh, auto);
+         background-color:rgb(221, 221, 221);
+        
+        grid-gap:1px;
+        grid-template-areas:
+        "o o t t t t t t th th"
+        "o o t t t t t t th th"
+        "o o t t t t t t th th";
+    }
+    
+    
+    
+    #alldata > div {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        margin-bottom: 5px;
+        
+    }
+  
+  
+    
+    #showdata_twos{
+        display: grid;
+        grid-column-gap:5px;
+        grid-row-gap:0px;
+        grid-template-columns: repeat(2,0.5fr);
+        grid-template-rows: repeat(10,0.2fr);
+        margin:0.5rem;
+    }
+     #showdata_twos div{
+         width: 100%;
+         height: 90%;
+         border: 1px solid black;
+    } 
+    #showdata_twos img{
+        width: 50%;
+        height: 50%;
+    }
+    #showdata_twos p,h4,span{
+        font-size:10px;
+    }
+   
+  
+    
